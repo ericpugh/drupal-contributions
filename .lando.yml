@@ -17,6 +17,8 @@ services:
       - mkdir -p private/browsertest_output
       - yarn install --non-interactive --cwd /app/web/core
     overrides:
+      extra_hosts:
+        - "host.docker.internal:host-gateway"
       environment:
         SIMPLETEST_BASE_URL: "http://drupal-contributions.lndo.site/"
         SIMPLETEST_DB: "sqlite://localhost/tmp/db.sqlite"
